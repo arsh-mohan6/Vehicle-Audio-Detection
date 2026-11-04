@@ -1,0 +1,19 @@
+{
+    "Test Samples": 386,
+    "Correct Predictions": 381,
+    "Incorrect Predictions": 5,
+    "Accuracy": 0.9870466321243523,
+    "Balanced Accuracy": 0.9917337627482554,
+    "Macro Precision": 0.9847619047619048,
+    "Macro Recall": 0.9917337627482554,
+    "Macro F1": 0.988099666744168,
+    "Weighted Precision": 0.9874907475943746,
+    "Weighted Recall": 0.9870466321243523,
+    "Weighted F1": 0.9871069667294308,
+    "Macro ROC-AUC": 0.9989274881062317,
+    "Macro PR-AUC (Average Precision)": 0.9962654821274549,
+    "MCC": 0.9829244222488469,
+    "Cohen Kappa": 0.9828079208273577,
+    "Log Loss": 0.08762100338935852,
+    "Top-2 Accuracy": 0.9922279792746114
+}
