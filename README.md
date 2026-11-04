@@ -1,3 +1,14 @@
+## 📈 Model Accuracy Curve
+
+The graph below shows the training and validation accuracy of the Dual-Branch CNN model over 30 epochs.
+
+![Training and Validation Accuracy](results/accuracy_curve.png)
+
+**Final Results:**
+- Training Accuracy: **98.12%**
+- Validation Accuracy: **98.44%**
+- Test Accuracy: **98.70%**
+
 # Vehicle Audio Detection Using Deep Learning
 
 A deep learning project that classifies vehicle sounds into **Bicycle,
