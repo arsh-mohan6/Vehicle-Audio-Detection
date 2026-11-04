@@ -1,0 +1,60 @@
+
+# ==============================
+# Python cache files
+# ==============================
+__pycache__/
+*.py[cod]
+*.pyo
+
+# ==============================
+# Virtual environments
+# ==============================
+venv/
+.venv/
+env/
+
+# ==============================
+# Jupyter Notebook
+# ==============================
+.ipynb_checkpoints/
+
+# ==============================
+# Dataset - large audio files
+# ==============================
+dataset/raw/
+dataset/processed/
+
+# ==============================
+# Trained models
+# ==============================
+models/*.h5
+models/*.keras
+models/*.pth
+models/*.pkl
+models/*.joblib
+
+# ==============================
+# Results and temporary files
+# ==============================
+results/
+*.log
+*.tmp
+
+# ==============================
+# Environment variables
+# ==============================
+.env
+.env.*
+
+# ==============================
+# IDE settings
+# ==============================
+.vscode/
+.idea/
+
+# ==============================
+# OS files
+# ==============================
+.DS_Store
+Thumbs.db
+desktop.ini
