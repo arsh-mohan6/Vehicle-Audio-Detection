@@ -993,9 +993,9 @@ comparison.
 
 ![Attention vs Permutation Importance](Acoustic_Feature_Attention/results/graphs/20_attention_vs_permutation.svg)
 
-*Figure: Min-max normalized mean attention weights and mean test
-accuracy decreases after feature permutation. Each measure is
-normalized independently for visual comparison.*
+*Figure: Mean attention weights and mean test accuracy decreases after
+feature permutation. Each series is normalized by dividing by its own
+maximum value, producing scores between 0 and 1.*
 
 The rankings are related but not identical. Spectral Bandwidth Mean
 ranked first in permutation importance but third in attention. Spectral
