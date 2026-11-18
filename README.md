@@ -807,3 +807,201 @@ Project repository:
 
 *Built as a deep learning project for audio-based vehicle
 classification.*
+
+
+------------------------------------------------------------------------
+
+# Additional Experiment: Acoustic Feature Attention Analysis
+
+This experiment extends the vehicle audio classification project by
+analysing which handcrafted acoustic features the feature-attention
+model focuses on and comparing those attention weights with permutation
+importance. It is maintained separately from the original dual-branch
+MFCC + Mel CNN pipeline.
+
+## Research Objective
+
+The objective is to study the relative attention assigned to individual
+acoustic features during five-class vehicle sound classification and
+compare the learned attention ranking with the impact of shuffling each
+feature during test-set evaluation.
+
+The experiment evaluates 11 acoustic features across Bicycle, Bus, Car,
+Motorcycle, and Truck recordings:
+
+| Feature | Description |
+|---|---|
+| `pitch_mean` | Mean estimated fundamental frequency |
+| `pitch_std` | Variation in estimated fundamental frequency |
+| `rms_mean` | Mean short-time root-mean-square energy |
+| `rms_std` | Variation in short-time RMS energy |
+| `onset_rate` | Rate of detected acoustic onsets |
+| `spectral_centroid_mean` | Mean spectral centroid |
+| `spectral_bandwidth_mean` | Mean spectral bandwidth |
+| `spectral_rolloff_mean` | Mean spectral rolloff |
+| `spectral_flatness_mean` | Mean spectral flatness |
+| `spectral_contrast_mean` | Mean spectral contrast |
+| `dominant_peak_freq` | Frequency of the dominant spectral peak |
+
+Pitch estimates in complex vehicle recordings can be noisy. Onset rate
+is used as a temporal-rhythm descriptor; resonance is not measured
+directly by this feature set.
+
+## Dataset and Preprocessing
+
+The experiment uses the same 2,568 WAV recordings as the main project.
+The stratified split is:
+
+| Subset | Recordings | Share |
+|---|---:|---:|
+| Training | 1,797 | 70% |
+| Validation | 385 | 15% |
+| Test | 386 | 15% |
+| **Total** | **2,568** | **100%** |
+
+All 11 features were extracted successfully for all 2,568 recordings.
+No extraction failures, missing values, or infinite values were reported.
+A `StandardScaler` was fitted on the training data only and then applied
+to the validation and test sets to avoid using held-out data when
+estimating scaling parameters.
+
+## Feature-Attention Model
+
+The model receives 11 standardized acoustic features. Its attention
+subnetwork uses a Dense layer with 32 ReLU units, followed by an
+11-unit score layer and a Softmax over the features. The resulting
+weights are multiplied element-wise with the input features. The
+weighted representation is passed through Dense layers (32 and 16
+units), Dropout (0.3), and a five-class Softmax output.
+
+| Setting | Value |
+|---|---|
+| Trainable parameters | 1,744 |
+| Optimizer | Adam |
+| Learning rate | 0.001 |
+| Loss | Sparse categorical crossentropy |
+| Dropout | 0.3 |
+| Best validation epoch | 39 |
+| Early-stopping point | 51 epochs |
+| Best validation accuracy | **90.13%** |
+| Best validation loss | **0.3339** |
+
+The best checkpoint was selected using validation loss. These are
+validation results for the additional feature-attention model; they are
+not the test metrics of the original dual-branch CNN.
+
+## Overall Feature Attention
+
+Mean attention weights extracted from the held-out test samples:
+
+| Feature | Mean attention | Standard deviation |
+|---|---:|---:|
+| spectral_centroid_mean | 0.360760 | 0.282045 |
+| spectral_contrast_mean | 0.169078 | 0.246672 |
+| spectral_bandwidth_mean | 0.148662 | 0.130372 |
+| rms_std | 0.102668 | 0.116614 |
+| rms_mean | 0.100656 | 0.128316 |
+| onset_rate | 0.067317 | 0.143925 |
+| spectral_flatness_mean | 0.027561 | 0.060651 |
+| pitch_std | 0.018472 | 0.026327 |
+| spectral_rolloff_mean | 0.002271 | 0.003080 |
+| pitch_mean | 0.001452 | 0.001624 |
+| dominant_peak_freq | 0.001104 | 0.003041 |
+
+Spectral Centroid Mean received the largest average attention weight
+(0.360760), followed by Spectral Contrast Mean (0.169078) and Spectral
+Bandwidth Mean (0.148662). Attention weights represent the model's
+relative allocation of attention; they should not be interpreted as
+causal effects or as a standalone measure of feature necessity.
+
+## Permutation Importance
+
+Permutation importance was evaluated on the test set. For each feature,
+its values were randomly shuffled across test samples while the other
+ten feature columns were kept unchanged. The model was evaluated again,
+and the decrease in accuracy and macro-F1 was recorded. Each feature was
+permuted 10 times; the reported drops are the mean across repetitions.
+
+Baseline test performance of the feature-attention model:
+
+| Metric | Baseline |
+|---|---:|
+| Accuracy | 90.93% |
+| Macro-F1 | 86.79% |
+
+Mean accuracy decrease after permutation:
+
+| Feature | Accuracy decrease (percentage points) |
+|---|---:|
+| spectral_bandwidth_mean | 27.05 |
+| spectral_centroid_mean | 25.44 |
+| spectral_contrast_mean | 20.26 |
+| spectral_rolloff_mean | 13.37 |
+| rms_mean | 13.26 |
+| rms_std | 12.31 |
+| onset_rate | 8.58 |
+| pitch_mean | 4.95 |
+| pitch_std | 3.73 |
+| spectral_flatness_mean | 3.16 |
+| dominant_peak_freq | 2.31 |
+
+Spectral Bandwidth Mean caused the largest average accuracy decrease
+(27.05 percentage points), followed by Spectral Centroid Mean (25.44)
+and Spectral Contrast Mean (20.26). This indicates that the model's
+test performance was most sensitive to shuffling these feature
+columns in this experiment.
+
+## Attention and Permutation Comparison
+
+The two rankings were compared using Spearman rank correlation:
+
+| Statistical measure | Result | Interpretation |
+|---|---:|---|
+| Spearman rank correlation | 0.7727 | Strong positive association |
+| P-value | 0.005299 | Statistically significant at the 0.05 level |
+
+A Spearman correlation of 0.7727 indicates that features with higher
+attention rankings generally also tend to have higher permutation
+importance rankings. The P-value of 0.005299 is below 0.05, providing
+evidence of a statistically significant rank association in this
+comparison.
+
+![Attention vs Permutation Importance](Acoustic_Feature_Attention/results/graphs/20_attention_vs_permutation.svg)
+
+*Figure: Min-max normalized mean attention weights and mean test
+accuracy decreases after feature permutation. Each measure is
+normalized independently for visual comparison.*
+
+The rankings are related but not identical. Spectral Bandwidth Mean
+ranked first in permutation importance but third in attention. Spectral
+Rolloff Mean ranked ninth in attention and fourth in permutation
+importance. The comparison is based on 11 features, and correlated
+acoustic descriptors may affect permutation results. Therefore, the
+correlation should be interpreted cautiously and does not establish
+causation.
+
+## Interpretation and Limitations
+
+- Attention weights describe the model's relative feature focus; they
+  are not causal explanations.
+- Permutation importance measures the change in model performance when
+  one feature column is shuffled. With correlated features, shuffling
+  one feature can also create combinations that are less representative
+  of the original data.
+- The Spearman result is based on only 11 feature-level rankings.
+- Pitch/F0 estimates can be unreliable in noisy or polyphonic vehicle
+  audio.
+- Onset rate represents temporal activity and is not a direct measure
+  of vehicle speed or pace.
+- The experiment evaluates the current dataset and split; independent
+  recordings are needed to assess generalisation.
+
+## Experiment Reproducibility
+
+The experiment's source scripts, processed feature CSVs, model
+checkpoints, logs, and analysis plots are intended to be stored under
+`Acoustic_Feature_Attention/`. Raw audio and other large source
+recordings are not included in this repository. Refer to the experiment
+folder for the exact scripts and generated artifacts when available.
+
+------------------------------------------------------------------------
