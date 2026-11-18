@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="550" viewBox="0 0 1120 550">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="560" y="30" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#202124">Attention vs Permutation Importance</text>
+<text x="300" y="55" font-family="Arial" font-size="12" fill="#555">Min-max normalized scores (0–1)</text>
+<rect x="300" y="68" width="13" height="13" fill="#386cb0"/><text x="319" y="80" font-family="Arial" font-size="12" fill="#333">Mean attention</text>
+<rect x="445" y="68" width="13" height="13" fill="#f28e2b"/><text x="464" y="80" font-family="Arial" font-size="12" fill="#333">Accuracy drop after permutation</text><line x1="300" y1="95" x2="300" y2="454" stroke="#dddddd"/><text x="300" y="91" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">0.00</text><line x1="472.5" y1="95" x2="472.5" y2="454" stroke="#dddddd"/><text x="472.5" y="91" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">0.25</text><line x1="645" y1="95" x2="645" y2="454" stroke="#dddddd"/><text x="645" y="91" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">0.50</text><line x1="817.5" y1="95" x2="817.5" y2="454" stroke="#dddddd"/><text x="817.5" y="91" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">0.75</text><line x1="990" y1="95" x2="990" y2="454" stroke="#dddddd"/><text x="990" y="91" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">1.00</text><text x="288" y="88" text-anchor="end" font-family="Arial" font-size="12" fill="#333">pitch_mean</text>
+ <rect x="300" y="70" width="0.6676379651667148" height="10" rx="2" fill="#386cb0"/>
+ <rect x="300" y="83" width="73.6967935685444" height="10" rx="2" fill="#f28e2b"/><text x="288" y="122" text-anchor="end" font-family="Arial" font-size="12" fill="#333">pitch_std</text>
+ <rect x="300" y="104" width="33.320506261538796" height="10" rx="2" fill="#386cb0"/>
+ <rect x="300" y="117" width="39.73909599084916" height="10" rx="2" fill="#f28e2b"/><text x="288" y="156" text-anchor="end" font-family="Arial" font-size="12" fill="#333">rms_mean</text>
+ <rect x="300" y="138" width="190.99050203527813" height="10" rx="2" fill="#386cb0"/>
+ <rect x="300" y="151" width="305.6220671034603" height="10" rx="2" fill="#f28e2b"/><text x="288" y="190" text-anchor="end" font-family="Arial" font-size="12" fill="#333">rms_std</text>
+ <rect x="300" y="172" width="194.8505238338857" height="10" rx="2" fill="#386cb0"/>
+ <rect x="300" y="185" width="278.8904203161567" height="10" rx="2" fill="#f28e2b"/><text x="288" y="224" text-anchor="end" font-family="Arial" font-size="12" fill="#333">onset_rate</text>
+ <rect x="300" y="206" width="127.02963387236693" height="10" rx="2" fill="#386cb0"/>
+ <rect x="300" y="219" width="174.84756011301124" height="10" rx="2" fill="#f28e2b"/><text x="288" y="258" text-anchor="end" font-family="Arial" font-size="12" fill="#333">spectral_centroid_mean</text>
+ <rect x="300" y="240" width="690" height="10" rx="2" fill="#386cb0"/>
+ <rect x="300" y="253" width="645.204620688819" height="10" rx="2" fill="#f28e2b"/><text x="288" y="292" text-anchor="end" font-family="Arial" font-size="12" fill="#333">spectral_bandwidth_mean</text>
+ <rect x="300" y="274" width="283.0900082300865" height="10" rx="2" fill="#386cb0"/>
+ <rect x="300" y="287" width="690" height="10" rx="2" fill="#f28e2b"/><text x="288" y="326" text-anchor="end" font-family="Arial" font-size="12" fill="#333">spectral_rolloff_mean</text>
+ <rect x="300" y="308" width="2.23888938318838" height="10" rx="2" fill="#386cb0"/>
+ <rect x="300" y="321" width="308.51416076213883" height="10" rx="2" fill="#f28e2b"/><text x="288" y="360" text-anchor="end" font-family="Arial" font-size="12" fill="#333">spectral_flatness_mean</text>
+ <rect x="300" y="342" width="50.75775185176946" height="10" rx="2" fill="#386cb0"/>
+ <rect x="300" y="355" width="23.842342032828235" height="10" rx="2" fill="#f28e2b"/><text x="288" y="394" text-anchor="end" font-family="Arial" font-size="12" fill="#333">spectral_contrast_mean</text>
+ <rect x="300" y="376" width="322.2581021865338" height="10" rx="2" fill="#386cb0"/>
+ <rect x="300" y="389" width="500.7031272104087" height="10" rx="2" fill="#f28e2b"/><text x="288" y="428" text-anchor="end" font-family="Arial" font-size="12" fill="#333">dominant_peak_freq</text>
+ <rect x="300" y="410" width="0" height="10" rx="2" fill="#386cb0"/>
+ <rect x="300" y="423" width="0" height="10" rx="2" fill="#f28e2b"/><text x="560" y="532" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">Feature-level comparison; normalized independently within each importance measure</text></svg>
