@@ -34,6 +34,7 @@ to predict the vehicle category.
 -   [Model Architecture](#model-architecture)
 -   [Training Configuration](#training-configuration)
 -   [Results](#results)
+-   [Additional Experiment: Acoustic Feature Attention Analysis](#additional-experiment-acoustic-feature-attention-analysis)
 -   [Requirements](#requirements)
 -   [Installation](#installation)
 -   [Dataset Setup](#dataset-setup)
@@ -172,6 +173,15 @@ Vehicle-Audio-Detection/
 │   ├── G1_Training_Visualization.py
 │   ├── E_Prediction.py
 │   └── F_Evaluation.py
+│
+├── Acoustic_Feature_Attention/
+│   ├── data/
+│   │   ├── overall_feature_attention.csv
+│   │   ├── permutation_importance.csv
+│   │   └── attention_permutation_comparison.csv
+│   └── results/
+│       └── graphs/
+│           └── 20_attention_vs_permutation.svg
 │
 ├── main.py
 ├── requirements.txt
@@ -998,10 +1008,22 @@ causation.
 
 ## Experiment Reproducibility
 
-The experiment's source scripts, processed feature CSVs, model
-checkpoints, logs, and analysis plots are intended to be stored under
-`Acoustic_Feature_Attention/`. Raw audio and other large source
-recordings are not included in this repository. Refer to the experiment
-folder for the exact scripts and generated artifacts when available.
+The committed experiment artifacts currently include the exported overall
+attention results, permutation-importance results, rank-comparison CSV,
+and the final comparison graphic. These files are stored under
+`Acoustic_Feature_Attention/` and are linked below:
+
+- [Overall feature attention](Acoustic_Feature_Attention/data/overall_feature_attention.csv)
+- [Permutation importance](Acoustic_Feature_Attention/data/permutation_importance.csv)
+- [Attention/permutation ranking comparison](Acoustic_Feature_Attention/data/attention_permutation_comparison.csv)
+- [Final comparison graphic (SVG)](Acoustic_Feature_Attention/results/graphs/20_attention_vs_permutation.svg)
+
+**Reproducibility status:** The eight experiment source scripts, scaled
+train/validation/test feature tables, model checkpoints, full training
+logs, and the other exploratory PNG graphs were not present in the files
+available for this GitHub update, so they have not been uploaded. The raw
+WAV recordings are also excluded. Add the original experiment scripts and
+artifacts from the local `Acoustic_Feature_Attention/` directory to make
+the complete pipeline independently reproducible.
 
 ------------------------------------------------------------------------
