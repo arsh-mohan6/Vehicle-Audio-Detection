@@ -1031,11 +1031,11 @@ and the final comparison graphic. These files are stored under
 - [Overall feature attention](Acoustic_Feature_Attention/data/overall_feature_attention.csv)
 - [Permutation importance](Acoustic_Feature_Attention/data/permutation_importance.csv)
 - [Attention/permutation ranking comparison](Acoustic_Feature_Attention/data/attention_permutation_comparison.csv)
-- [Final comparison graphic (SVG)](Acoustic_Feature_Attention/results/graphs/20_attention_vs_permutation.svg)\n- [Training log excerpt (epoch 8 onward)](Acoustic_Feature_Attention/results/logs/training_log_excerpt_epoch8-51.txt)
+- [Final comparison graphic (SVG)](Acoustic_Feature_Attention/results/graphs/20_attention_vs_permutation.svg)\n- [Training log excerpt (as supplied)](Acoustic_Feature_Attention/results/logs/training_log_excerpt_epoch8-51.txt)\n- [Structured training metrics (epochs 9–51)](Acoustic_Feature_Attention/results/logs/training_metrics_epoch9-51.csv)
 
-**Reproducibility status:** A training-log excerpt beginning at epoch 8
-and continuing through the early-stopping result at epoch 51 is included.
-The complete log from epochs 1–7, eight experiment source scripts, scaled
+**Reproducibility status:** The available training-log excerpt and a
+structured epoch-metrics CSV for epochs 9–51 are included. The complete
+log from epochs 1–8, eight experiment source scripts, scaled
 train/validation/test feature tables, model checkpoints, and the other
 exploratory PNG graphs were not present in the files available for this
 GitHub update, so they have not been uploaded. The raw WAV recordings are
