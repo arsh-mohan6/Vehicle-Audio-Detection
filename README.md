@@ -941,19 +941,19 @@ Baseline test performance of the feature-attention model:
 
 Mean accuracy decrease after permutation:
 
-| Feature | Accuracy decrease (percentage points) |
-|---|---:|
-| spectral_bandwidth_mean | 27.05 |
-| spectral_centroid_mean | 25.44 |
-| spectral_contrast_mean | 20.26 |
-| spectral_rolloff_mean | 13.37 |
-| rms_mean | 13.26 |
-| rms_std | 12.31 |
-| onset_rate | 8.58 |
-| pitch_mean | 4.95 |
-| pitch_std | 3.73 |
-| spectral_flatness_mean | 3.16 |
-| dominant_peak_freq | 2.31 |
+| Feature | Accuracy decrease (pp), mean ± SD | Macro-F1 decrease, mean ± SD |
+|---|---:|---:|
+| spectral_bandwidth_mean | 27.05 ± 2.62 | 0.3205 ± 0.0298 |
+| spectral_centroid_mean | 25.44 ± 1.26 | 0.2022 ± 0.0131 |
+| spectral_contrast_mean | 20.26 ± 1.22 | 0.1722 ± 0.0149 |
+| spectral_rolloff_mean | 13.37 ± 0.76 | 0.1241 ± 0.0097 |
+| rms_mean | 13.26 ± 1.25 | 0.1538 ± 0.0165 |
+| rms_std | 12.31 ± 1.26 | 0.1483 ± 0.0169 |
+| onset_rate | 8.58 ± 1.20 | 0.1001 ± 0.0168 |
+| pitch_mean | 4.95 ± 0.99 | 0.0677 ± 0.0161 |
+| pitch_std | 3.73 ± 1.10 | 0.0360 ± 0.0134 |
+| spectral_flatness_mean | 3.16 ± 0.86 | 0.0310 ± 0.0106 |
+| dominant_peak_freq | 2.31 ± 0.50 | 0.0249 ± 0.0060 |
 
 Spectral Bandwidth Mean caused the largest average accuracy decrease
 (27.05 percentage points), followed by Spectral Centroid Mean (25.44)
