@@ -1,0 +1,12 @@
+feature,mean_attention,accuracy_drop,attention_rank,permutation_rank,rank_difference
+spectral_centroid_mean,0.360760,0.254404,1,2,-1
+spectral_contrast_mean,0.169078,0.202591,2,3,-1
+spectral_bandwidth_mean,0.148662,0.270466,3,1,2
+rms_std,0.102668,0.123057,4,6,-2
+rms_mean,0.100656,0.132642,5,5,0
+onset_rate,0.067317,0.085751,6,7,-1
+spectral_flatness_mean,0.027561,0.031606,7,10,-3
+pitch_std,0.018472,0.037306,8,9,-1
+spectral_rolloff_mean,0.002271,0.133679,9,4,5
+pitch_mean,0.001452,0.049482,10,8,2
+dominant_peak_freq,0.001104,0.023057,11,11,0
