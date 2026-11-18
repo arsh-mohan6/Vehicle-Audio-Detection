@@ -1,0 +1,12 @@
+feature,mean_attention,std_attention
+spectral_centroid_mean,0.360760,0.282045
+spectral_contrast_mean,0.169078,0.246672
+spectral_bandwidth_mean,0.148662,0.130372
+rms_std,0.102668,0.116614
+rms_mean,0.100656,0.128316
+onset_rate,0.067317,0.143925
+spectral_flatness_mean,0.027561,0.060651
+pitch_std,0.018472,0.026327
+spectral_rolloff_mean,0.002271,0.003080
+pitch_mean,0.001452,0.001624
+dominant_peak_freq,0.001104,0.003041
