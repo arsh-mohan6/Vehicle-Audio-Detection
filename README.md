@@ -924,6 +924,21 @@ Bandwidth Mean (0.148662). Attention weights represent the model's
 relative allocation of attention; they should not be interpreted as
 causal effects or as a standalone measure of feature necessity.
 
+
+### Representative class-wise attention observations
+
+The following are selected class/feature observations from the
+class-wise attention analysis. They are not a complete class-wise
+ranking table.
+
+| Vehicle class | Feature | Mean attention |
+|---|---|---:|
+| Bicycle | RMS Mean | 0.0887 |
+| Car | RMS Mean | 0.1435 |
+| Motorcycle | Spectral Contrast Mean | 0.4915 |
+| Truck | RMS Mean | 0.2555 |
+| Bus | Spectral Contrast Mean | 0.1403 |
+
 ## Permutation Importance
 
 Permutation importance was evaluated on the test set. For each feature,
