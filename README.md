@@ -1031,14 +1031,16 @@ and the final comparison graphic. These files are stored under
 - [Overall feature attention](Acoustic_Feature_Attention/data/overall_feature_attention.csv)
 - [Permutation importance](Acoustic_Feature_Attention/data/permutation_importance.csv)
 - [Attention/permutation ranking comparison](Acoustic_Feature_Attention/data/attention_permutation_comparison.csv)
-- [Final comparison graphic (SVG)](Acoustic_Feature_Attention/results/graphs/20_attention_vs_permutation.svg)
+- [Final comparison graphic (SVG)](Acoustic_Feature_Attention/results/graphs/20_attention_vs_permutation.svg)\n- [Training log excerpt (epoch 8 onward)](Acoustic_Feature_Attention/results/logs/training_log_excerpt_epoch8-51.txt)
 
-**Reproducibility status:** The eight experiment source scripts, scaled
-train/validation/test feature tables, model checkpoints, full training
-logs, and the other exploratory PNG graphs were not present in the files
-available for this GitHub update, so they have not been uploaded. The raw
-WAV recordings are also excluded. Add the original experiment scripts and
-artifacts from the local `Acoustic_Feature_Attention/` directory to make
-the complete pipeline independently reproducible.
+**Reproducibility status:** A training-log excerpt beginning at epoch 8
+and continuing through the early-stopping result at epoch 51 is included.
+The complete log from epochs 1–7, eight experiment source scripts, scaled
+train/validation/test feature tables, model checkpoints, and the other
+exploratory PNG graphs were not present in the files available for this
+GitHub update, so they have not been uploaded. The raw WAV recordings are
+also excluded. Add the original experiment scripts and remaining artifacts
+from the local `Acoustic_Feature_Attention/` directory to make the complete
+pipeline independently reproducible.
 
 ------------------------------------------------------------------------
